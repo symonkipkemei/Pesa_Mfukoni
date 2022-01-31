@@ -1,6 +1,6 @@
-#Pesa Mfukoni
+# Pesa Mfukoni
 
-## why pesa Mfukoni (Pocket_Money)
+## why pesa Mfukoni 
 They say time is money , others say wealth is money compounded over time.It is therefore apparent there is a 
 thin line between time and money,and when used optimally this can create wealth and value overtime.
 
