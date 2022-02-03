@@ -1,24 +1,31 @@
 def amount(net_income):
     "edit the net income based on the amount and type of funds the user enters"
-    user_input = int(input("insert amount:"))
-    income = int(net_income)
+    fund_size = int(input("insert amount:"))
+    net_fund_size = int(net_income)
+
+    fund_type_dict = {"e": "EXPENDITURE", "i": "INCOME"}
 
     print("Expenditure(e) or Income(i) ")
     user_selection = input("insert option (e/i):")
 
     if user_selection == "e":
-        income -= user_input
+        net_fund_size -= fund_size
 
     elif user_selection == "i":
-        income += user_input
+        net_fund_size += fund_size
     else:
         print("wrong input")
 
-    data = str(income) + "\n"
+    data = str(net_fund_size) + "\n"
 
     with open("net_income.csv", "a") as f:
         f.write(data)
-    print(f"The net income is {income} ")
+    print(f"The net income is {net_fund_size} ")
+
+    fund_type = fund_type_dict[user_selection]
+
+    data = (fund_size, fund_type, net_fund_size)
+    return data
 
 
 def net_income_extract():
