@@ -17,6 +17,4 @@ def extract_date ():
         custom_year = int(input("year"))
 
         current_date = date(custom_year, custom_month, custom_date)
-
-    print(current_date)
     return current_date
