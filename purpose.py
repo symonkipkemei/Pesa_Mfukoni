@@ -79,9 +79,5 @@ def pesa_purpose():
         if user_selection == x:
             purpose = pesa_dict[x]
 
-    print(purpose)
     return purpose
 
-
-add_pesa_purpose()
-pesa_purpose()

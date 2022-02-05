@@ -2,6 +2,7 @@ from pesa_date import *
 from funds import *
 from wealth_motivation import *
 from purpose import *
+from store_csv import *
 
 
 def main():
@@ -15,9 +16,10 @@ def main():
 
     if user_selection == 1:
         current_date = extract_date()
-        last_no = net_income_extract()
         purpose = pesa_purpose()
-        fund_size, fund_type, net_fund_size = amount(last_no)
+        previous_net_fund = net_fund_extract()
+        fund_size, fund_type, net_fund_size = new_net_fund_size(previous_net_fund)
+        store_data_csv(current_date, fund_type, fund_size, purpose, net_fund_size)
 
         print(current_date)
         print(purpose)
