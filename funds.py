@@ -47,16 +47,12 @@ def net_fund_extract():
     return last_nest_fund
 
 
-def fund_type():
+def fund_types():
     "Establish the type of funds being recorded by the user"
     print("Expenditure(e) or Income(i) ")
     user_selection = input("insert option (e/i):")
     fund_type_dict = {"e": "EXPENDITURE", "i": "INCOME"}
 
-    fund_type = fund_type_dict[user_selection]
+    type_of_fund = fund_type_dict[user_selection]
 
-
-
-
-
-
+    return type_of_fund
