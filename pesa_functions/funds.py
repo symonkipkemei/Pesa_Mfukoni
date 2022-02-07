@@ -1,30 +1,18 @@
-def new_net_fund_size(previous_net_fund_size):
+def new_net_fund_size(type_of_fund, previous_net_fund_size):
     "edit the previous net_fund_size based on the new fund size and type of funds the user enters"
     fund_size = int(input("insert amount:"))
     net_fund_size = int(previous_net_fund_size)
 
-    fund_type_dict = {"e": "EXPENDITURE", "i": "INCOME"}
-
-    print("Expenditure(e) or Income(i) ")
-    user_selection = input("insert option (e/i):")
-
-    if user_selection == "e":
+    if type_of_fund == "EXPENDITURE":
         net_fund_size -= fund_size
 
-    elif user_selection == "i":
+    elif type_of_fund == "INCOME":
         net_fund_size += fund_size
     else:
         print("wrong input")
 
-    data = str(net_fund_size) + "\n"
-
-    with open("net_income.csv", "a") as f:
-        f.write(data)
     print(f"The net income is {net_fund_size} ")
-
-    fund_type = fund_type_dict[user_selection]
-
-    data = (fund_size, fund_type, net_fund_size)
+    data = (fund_size, net_fund_size)
     return data
 
 
@@ -41,7 +29,7 @@ def net_fund_extract():
                 last_nest_fund = int(item[4])
 
     except FileNotFoundError:
-        file = open("net_income.csv", "w")
+        file = open("Kiplelgo_funds_record.csv", "w")
         file.close()
 
     return last_nest_fund
@@ -50,7 +38,7 @@ def net_fund_extract():
 def fund_types():
     "Establish the type of funds being recorded by the user"
     print("Expenditure(e) or Income(i) ")
-    user_selection = input("insert option (e/i):")
+    user_selection = str.lower(input("insert option (e/i):"))
     fund_type_dict = {"e": "EXPENDITURE", "i": "INCOME"}
 
     type_of_fund = fund_type_dict[user_selection]

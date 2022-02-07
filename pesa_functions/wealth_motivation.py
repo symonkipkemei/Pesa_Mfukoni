@@ -52,3 +52,5 @@ def motivation():
                   quote_11, quote_12, quote_13, quote_14, quote_15, quote_16]
 
     quote_computer_choice = random.choice(quote_list)
+
+    return quote_computer_choice
