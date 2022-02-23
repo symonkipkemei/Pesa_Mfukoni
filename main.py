@@ -3,13 +3,13 @@ from pesa_functions.funds import *
 from pesa_functions.wealth_motivation import *
 from pesa_functions.purpose import *
 from pesa_functions.store_csv import *
-
+from pesa_analysis.data_analysis import *
 
 def main():
     "control the flow of different elements"
     correct = True
     while correct:
-        print("************PESA MFUKONI***********")
+        print("\n************PESA MFUKONI***********")
         print("1) Add funds\n"
               "2) View Net income\n"
               "3) Adjust Purpose option\n"
@@ -32,7 +32,10 @@ def main():
             print(net_fund_size)
 
         elif user_selection == 2:
-            print("To be updated")
+            print("\n")
+            month = select_month()
+            compound_fund_uses(month)
+
 
         elif user_selection == 3:
             print("1) Expenditure\n"
