@@ -1,6 +1,3 @@
-""" We have already generated a csv file we can convert it into a 2d list and start analysing the data"""
-import csv
-
 
 def select_month():
     """select the month to display  """
@@ -31,6 +28,7 @@ def select_month():
 
 def compound_fund_uses(month):
     """ Compound all the fund uses identified by the user for the selected month """
+    import csv
 
     # year dictionary
 
@@ -107,7 +105,7 @@ def compound_fund_uses(month):
                 if item[3] == "ARTEFACTS":
                     ARTEFACTS += int(item[2])
 
-        print(f"\nSUMMARY OF SPENDING IN THE MONTH OF {year[1]}\n")
+        print(f"\nSUMMARY OF SPENDING IN THE MONTH OF {year[month]}\n")
         print(f"TOTAL: {TOTAL}")
         print(f"TRANSPORT: {TRANSPORT}")
         print(f"LUNCH: {LUNCH}")
@@ -117,6 +115,7 @@ def compound_fund_uses(month):
         print(f"THANKSGIVING: {THANKSGIVING}")
         print(f"BUNDLES: {BUNDLES}")
         print(f"NHIF: {NHIF}")
+        print(f"CLOTHES: {CLOTHES}")
         print(f"KINYOZI: {KINYOZI}")
         print(f"WITHDRAWN: {WITHDRAWN}")
         print(f"INVESTMENT: {INVESTMENT}")
@@ -132,12 +131,10 @@ def compound_fund_uses(month):
         print(f"THANKSGIVING:{round(THANKSGIVING / TOTAL * 100, 2)}%")
         print(f"BUNDLES:{round(BUNDLES / TOTAL * 100, 2)}%")
         print(f"NHIF:{round(NHIF / TOTAL * 100, 2)}%")
+        print(f"CLOTHES:{round(CLOTHES / TOTAL * 100, 2)}%")
         print(f"KINYOZI:{round(KINYOZI / TOTAL * 100, 2)}%")
         print(f"WITHDRAWN:{round(WITHDRAWN / TOTAL * 100, 2)}%")
         print(f"INVESTMENT:{round(INVESTMENT / TOTAL * 100, 2)}%")
         print(f"SUPPER:{round(SUPPER / TOTAL * 100, 2)}%")
         print(f"ARTEFACTS:{round(ARTEFACTS / TOTAL * 100, 2)}%")
 
-
-month = select_month()
-compound_fund_uses(month)
