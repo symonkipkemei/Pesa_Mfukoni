@@ -54,7 +54,7 @@ def compound_fund_uses(month):
 
     # Abstract the 2d list from the csv to be used for analysis
 
-    with open("E:\SKLO\python\Pesa_Mfukoni\Kiplelgo_funds_record.csv", "r") as f:
+    with open("Kiplelgo_funds_record.csv", "r") as f:
         iterable = csv.reader(f)
         # 2d list
         dd_list = list(iterable)
@@ -137,4 +137,3 @@ def compound_fund_uses(month):
         print(f"INVESTMENT:{round(INVESTMENT / TOTAL * 100, 2)}%")
         print(f"SUPPER:{round(SUPPER / TOTAL * 100, 2)}%")
         print(f"ARTEFACTS:{round(ARTEFACTS / TOTAL * 100, 2)}%")
-
