@@ -35,4 +35,13 @@ start today....  turn one day-to-day one.
 
 
 
+# updates
+1. Parameters such as retreat do not reflect on the total count thus giving wrong sum/net value
+2. Updates on investments/savings and other sources of income
+3. Need for a database to track everything in a go
+
+
+4. set up a new system called sklo-fund
+
+
 
