@@ -51,6 +51,9 @@ def compound_fund_uses(month):
     INVESTMENT = 0
     SUPPER = 0
     ARTEFACTS = 0
+    SHOPPING = 0
+    RETREAT = 0
+
 
     # Abstract the 2d list from the csv to be used for analysis
 
@@ -104,6 +107,11 @@ def compound_fund_uses(month):
                     SUPPER += int(item[2])
                 if item[3] == "ARTEFACTS":
                     ARTEFACTS += int(item[2])
+                if item[3] == "SHOPPING":
+                    SHOPPING += int(item[2])
+                if item[3] == "RETREAT":
+                    RETREAT += int(item[2])
+
 
         print(f"\nSUMMARY OF SPENDING IN THE MONTH OF {year[month]}\n")
         print(f"TOTAL: {TOTAL}")
@@ -121,6 +129,8 @@ def compound_fund_uses(month):
         print(f"INVESTMENT: {INVESTMENT}")
         print(f"SUPPER: {SUPPER}")
         print(f"ARTEFACTS: {ARTEFACTS}")
+        print(f"SHOPPING: {SHOPPING}")
+        print(f"RETREAT: {RETREAT}")
 
         print(f"\nPERCENTAGES OF EXPENDITURE {year[month]}")
         print(f"TRANSPORT:{round(TRANSPORT / TOTAL * 100, 2)}%")
@@ -137,3 +147,5 @@ def compound_fund_uses(month):
         print(f"INVESTMENT:{round(INVESTMENT / TOTAL * 100, 2)}%")
         print(f"SUPPER:{round(SUPPER / TOTAL * 100, 2)}%")
         print(f"ARTEFACTS:{round(ARTEFACTS / TOTAL * 100, 2)}%")
+        print(f"SHOPPING:{round(SHOPPING / TOTAL * 100, 2)}%")
+        print(f"RETREAT:{round(RETREAT / TOTAL * 100, 2)}%")

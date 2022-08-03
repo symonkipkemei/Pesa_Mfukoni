@@ -14,7 +14,7 @@ def extract_date ():
     elif user_option == 2:
         custom_date = int(input("date:"))
         custom_month = int(input("month:"))
-        custom_year = int(input("year"))
+        custom_year = int(input("year:"))
 
         current_date = date(custom_year, custom_month, custom_date)
     return current_date
