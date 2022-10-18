@@ -111,27 +111,3 @@ while try_again:
 print(result)
         
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-# DISPLAY STATUS
-def retrieve_status():
-    """Read the status from the status table,
-     select one option and return it to the user.
-     If option is missing allow user to update.
-
-    Returns:
-        result(str): selected status
-    """
-    
