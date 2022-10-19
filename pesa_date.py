@@ -17,4 +17,8 @@ def extract_date ():
         custom_year = int(input("year:"))
 
         current_date = date(custom_year, custom_month, custom_date)
+
+    # format date to string format
+    current_date =current_date.strftime('%Y-%m-%d %H:%M:%S')
+    
     return current_date

@@ -1,4 +1,4 @@
-from pesa_functions.pesa_date import *
+from pesa_date import *
 from pesa_functions.funds import *
 from pesa_functions.wealth_motivation import *
 from pesa_functions.purpose import *
