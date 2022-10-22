@@ -31,7 +31,7 @@ def status_table(table_name):
         selected_table = s.Table(f'{table_name}', metadata, autoload=True, autoload_with=engine)
     
         # select entries in the database
-        query = s.select([selected_table.columns.status_id, selected_table.columns.status_type])
+        query = s.select([selected_table.columns.status_id, selected_table.columns.status_description])
         result_proxy = connection.execute(query)
 
         # STORING RESULTS PROXY IN A DICT

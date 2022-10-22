@@ -19,7 +19,7 @@ def add_funds():
 
     status_id = status_table("status")
 
-    if status_id == 4:
+    if status_id == 1:
         money_in = int(input("insert amount:"))
         money_out = 0
         print("money input recorded")
