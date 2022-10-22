@@ -1,18 +1,18 @@
 
-from mysql_tables.account_type import account_type_table
-from mysql_tables.account import account_table
-from mysql_tables.purpose import purpose_table
-from mysql_tables.purpose_type import purpose_type_table
-from mysql_tables.status import status_table
-from mysql_tables.transaction import transaction_table
+from mysql_account_type import account_type_table
+from mysql_account import account_table
+from mysql_purpose import purpose_table
+from mysql_purpose_type import purpose_type_table
+from mysql_status import status_table
+from mysql_transaction import transaction_table
 from pesa_date import extract_date
 
-import previous_folders.pesa_functions.wealth_motivation as pw
+import wealth_motivation as pw
 
 def add_funds():
     """control flow for adding a transaction
     """
-
+    
     account_type_id = account_type_table("account_type")
 
     account_id = account_table("account",account_type_id)
