@@ -11,7 +11,7 @@ from mysql_account_type import show_account_type_table
 from mysql_purpose_type import show_purpose_type_table
 from mysql_purpose import show_purpose_table
 
-def transaction_table(table_name: str, ACCOUNT_ID : int, STATUS_ID: int, MONEY_IN: int, MONEY_OUT:int, PURPOSE_ID:int, DATE_OF_TRANSACTION) -> int:
+def transaction_table(table_name: str, ACCOUNT_ID : int, STATUS_ID: int, TRANSACTION_AMOUNT: float, PURPOSE_ID:int, DATE_OF_TRANSACTION) -> int:
     """A record of the transaction done from each and every account
 
     Args:
@@ -32,15 +32,16 @@ def transaction_table(table_name: str, ACCOUNT_ID : int, STATUS_ID: int, MONEY_I
 
     # MONEY IN
     if STATUS_ID == 1:
-        insert = s.insert(selected_table).values(account_id = ACCOUNT_ID, status_id = STATUS_ID,money_in = MONEY_IN,purpose_id = PURPOSE_ID, date_of_transaction = DATE_OF_TRANSACTION )
+        insert = s.insert(selected_table).values(account_id = ACCOUNT_ID, status_id = STATUS_ID,money_in = TRANSACTION_AMOUNT,purpose_id = PURPOSE_ID, date_of_transaction = DATE_OF_TRANSACTION )
         proxy = connection.execute(insert)
         print("Transaction completed")
 
     # MONEY OUT
     elif STATUS_ID == 2:
-        insert = s.insert(selected_table).values(account_id = ACCOUNT_ID, status_id = STATUS_ID,money_out = MONEY_OUT,purpose_id = PURPOSE_ID, date_of_transaction = DATE_OF_TRANSACTION )
+        insert = s.insert(selected_table).values(account_id = ACCOUNT_ID, status_id = STATUS_ID,money_out = TRANSACTION_AMOUNT,purpose_id = PURPOSE_ID, date_of_transaction = DATE_OF_TRANSACTION )
         proxy = connection.execute(insert)
         print("Transaction completed")
+
 
 
 

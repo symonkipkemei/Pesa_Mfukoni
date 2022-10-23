@@ -4,7 +4,7 @@ from connect import engine
 from connect import connection
 from connect import metadata
 from mysql_account_type import account_type_table
-
+from mysql_account_currency import account_currency_table
 
 
 def account_table(table_name: str, ACCOUNT_TYPE_ID : int) -> int:
@@ -101,11 +101,20 @@ def account_table(table_name: str, ACCOUNT_TYPE_ID : int) -> int:
                     ACCOUNT_NAME= input("insert account_name: ")
                     ACCOUNT_NO= input("Insert account_no: ")
                     ACCOUNT_HOST= input("Insert account_host: ")
-                    ACCOUNT_DESCRIPTION= input("Insert account_description: ")
+                    ACCOUNT_CURRENCY_ID= account_currency_table()
+                    ACCOUNT_ENDPOINT= input("Insert account_endpoint: ")
+                    ACCOUNT_FUNCTION= input("Insert account_function: ")
                     print("_____________________________")
                     print()
 
-                    update = s.update(selected_table).values(account_name = ACCOUNT_NAME, account_type_id = ACCOUNT_TYPE_ID,account_no = ACCOUNT_NO, account_host = ACCOUNT_HOST,account_description=ACCOUNT_DESCRIPTION).where(selected_table.columns.account_id == id_selection)
+                    update = s.update(selected_table).values(
+                        account_name = ACCOUNT_NAME, 
+                        account_type_id = ACCOUNT_TYPE_ID,
+                        account_currency_id = ACCOUNT_CURRENCY_ID, 
+                        account_no = ACCOUNT_NO, 
+                        account_host = ACCOUNT_HOST,
+                        account_endpoint=ACCOUNT_ENDPOINT,
+                        account_function=ACCOUNT_FUNCTION).where(selected_table.columns.account_id == id_selection)
                     proxy = connection.execute(update)
                     try_again = True
 
@@ -135,10 +144,12 @@ def account_table(table_name: str, ACCOUNT_TYPE_ID : int) -> int:
                     ACCOUNT_NAME= input("insert account_name: ")
                     ACCOUNT_NO= input("Insert account_no: ")
                     ACCOUNT_HOST= input("Insert account_host: ")
-                    ACCOUNT_DESCRIPTION= input("Insert account_description: ")
+                    ACCOUNT_CURRENCY_ID= account_currency_table("account_currency")
+                    ACCOUNT_ENDPOINT= input("Insert account_endpoint: ")
+                    ACCOUNT_FUNCTION= input("Insert account_function: ")
 
                     print("_____________________________")
-                    insert = s.insert(selected_table).values(account_name = ACCOUNT_NAME, account_type_id = ACCOUNT_TYPE_ID,account_no = ACCOUNT_NO, account_host = ACCOUNT_HOST,account_description=ACCOUNT_DESCRIPTION )
+                    insert = s.insert(selected_table).values(account_name = ACCOUNT_NAME, account_type_id = ACCOUNT_TYPE_ID,account_no = ACCOUNT_NO, account_host = ACCOUNT_HOST,account_currency_id = ACCOUNT_CURRENCY_ID,account_endpoint=ACCOUNT_ENDPOINT ,account_function=ACCOUNT_FUNCTION )
                     proxy = connection.execute(insert)
                     try_again = True
 
@@ -215,9 +226,7 @@ def show_account_table(table_name : str, ACCOUNT_TYPE_ID :int) -> int:
 
 
 
-
-
 if __name__ == "__main__":
-    account_type_id = 1
-    account_id = show_account_table("account")
+    account_type_id = account_type_table("account_type")
+    account_id = account_table("account",account_type_id)
     print(account_id)

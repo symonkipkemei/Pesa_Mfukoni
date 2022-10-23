@@ -24,25 +24,14 @@ def add_funds():
     purpose_id = purpose_table("purpose", purpose_type_id)   
 
     print("\namount transacted")
-
     print("***************************************************")
-
-    if status_id == 1:
-        money_in = int(input("insert:"))
-        money_out = 0
-        print("***************************************************")
-        print("money input recorded\n")
-
-    elif status_id == 2:
-        money_out = int(input("insert:"))
-        money_in = 0
-        print("***************************************************")
-        print("money output recorded\n")
-    
+    transaction_amount = float(input("insert:"))
+    print("***************************************************")
+    print("transaction recorded\n")
 
     date_of_transaction = extract_date()
 
-    transaction_table("transaction", account_id, status_id,money_in, money_out, purpose_id,date_of_transaction)
+    transaction_table("transaction", account_id, status_id, transaction_amount, purpose_id,date_of_transaction)
 
     showcase_transaction_table("transaction",5)
 
