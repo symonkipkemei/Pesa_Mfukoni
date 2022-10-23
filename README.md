@@ -12,28 +12,25 @@
 
 <h1 id="intro">Pesa Mfukoni</h1>
 
-![quote](quote.jpg)
+![Networth](screenshots/net-worth.png)
 
 **Why Pesa Mfukoni**
 
-They say time is money , others say wealth is money compounded over time.It is therefore apparent there is a 
-thin line between time and money,and when used optimally this can create wealth and value overtime.
+They say time is money , others say wealth is money compounded over time. It is therefore apparent there is a 
+thin line between time and money. When used optimally, this can create wealth and value over time.
 
-To achieve this , the following project looks forward to analyzing not just cash (money) but cash flows (money and time) 
-with the goal of optimizing incomes and investments and cutting on expenses at all times.
+To achieve this, the following project looks forward to analyzing not just cash (money) but cash flows (money and time). 
+The goal is to have a bigger picture of our financial status as well as the small minute details of where our money is being chanelled to.
 
-The outcome of this project is to make wealth a habit and a lifestyle rather than a dream and a one time wish.
+The outcome of this project is to make wealth a habit and a lifestyle rather than a dream.
 
-start today....  turn one day-to-day one.
-
- 
 **Hypothesis**
 
 - You do not track your expenses
 - You waste unnecessary money on uplanned items/events
 - You live a free life or a spontaneous life, tomorrow should take care of itself
 - You do not track your investments 
-- You are risk averse, 
+- You are risk averse
 
 **usage**
 
@@ -42,6 +39,9 @@ The programme is able to intuitively :
 2. Track your monetary net value.
 3. Track all expenditure, business, expenditure accounts .
 
+**Rules of the game**
+1. Do mix transactions, document only transactions for the respective accounts ; i.e expenditure accounts should only be for expenditures
+3. Keep track of all transaction daily, if not at least/minimum once a week.
 
 <TECHNOLOGIES>
 
@@ -81,9 +81,9 @@ To get this project up and running locally, you must already have the following 
 
 - git clone ```https://github.com/symonkipkemei/Pesa_Mfukoni.git ```
 - Load mysql schema on your database using mysql workbench
+- set up your root/database password as virtual environment variable
 - Set up and activate the virtual environment.
-- Interact with the datbases from the python command.
-
+- Run on terminal program.py
 
 
 
@@ -101,11 +101,17 @@ To get this project up and running locally, you must already have the following 
 - In progress
 
 **To do**
-- Design database
-- Design logic to interact with database
-- Test load data in the database
-- Query data from the database
+- Testing the code
+- Remove bugs
+- Refactor
+- Load live data into the database
+- Load database in a online server
+- add account_currency column to account table
 
+**complete**
+- Design database 
+- Design logic to interact with database
+- Query data from the database
 
 **features**
 - Your suggestions 😊............
@@ -161,7 +167,7 @@ Finally, if you've read this far, don't forget to give this repo a ⭐️.
 ## Acknowledgments
 
 - [codingnomads](https://codingnomads.co/).
--
+- [sqlalchemy documentation](https://www.sqlalchemy.org/)
 
 
 
