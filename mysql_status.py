@@ -136,3 +136,70 @@ def status_table(table_name):
     # RETURN ID(PRIMARY KEY) OF SELECTED OPTION
     #_______________________________________________________________________________________   
     return user_selection 
+
+
+def show_status_table(table_name : str) -> int:
+    """show items in table, allow user to select one
+
+    Args:
+        table_name (str): name of the table 
+
+    Returns:
+        int: id of the table
+    """
+
+    try_again = True
+    while try_again:
+        # create a table object for result
+        selected_table = s.Table(f'{table_name}', metadata, autoload=True, autoload_with=engine)
+    
+        # select entries in the database
+        query = s.select([selected_table.columns.status_id, selected_table.columns.status_description])
+        result_proxy = connection.execute(query)
+
+        # STORING RESULTS PROXY IN A DICT
+        #_______________________________________________________________________________________
+       
+        # record the output in a dict ( key and value); id and the name
+        output_dict = {}
+        for result in result_proxy:
+            #convert tuple output to one item
+            column_a = result[0]
+            column_b= result[1]
+
+            # table_id (primary key) recorded as the key, followed by identifier name
+
+            output_dict[column_a]=str.upper(column_b)
+
+        # insert option to update if input is missing
+        changes = {"u":"update","d":"delete","i":"insert" }
+
+
+        # DISPLAY ENTRIES IN DATABASE
+        #_______________________________________________________________________________________
+        print()
+        print(F"{table_name}")
+        print("***************************************************")
+        for key, value in output_dict.items():
+            print(f"{key}:{value}")
+        print("___________________________________________________")
+
+        # SELECT ENTRY IN DATABASE LOGIC
+        #_______________________________________________________________________________________
+        user_selection = input("select: ")
+        if user_selection.isdigit():
+            user_selection = int(user_selection)
+            if user_selection in output_dict.keys():
+                try_again = False
+            else:
+                print("Integer selected out of range")
+                try_again = True
+        else:
+            print("Wrong input")
+    return user_selection
+
+
+
+if __name__ == "__main__":
+    status_id = show_status_table("status")
+    print(status_id)
