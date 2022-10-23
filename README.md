@@ -91,6 +91,8 @@ To get this project up and running locally, you must already have the following 
 
 <h1 id="illus">Illustrations</h1>
 
+- [database design](https://github.com/symonkipkemei/Pesa_Mfukoni/wiki/Database-design).
+- [adding funds](https://github.com/symonkipkemei/Pesa_Mfukoni/wiki/Adding-funds).
 
 
 <PROJECT-INFORMATION>
