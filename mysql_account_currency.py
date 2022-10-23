@@ -6,7 +6,8 @@ from connect import metadata
 
 
 
-def account_type_table(table_name):
+
+def account_currency_table(table_name):
     """View , select, update and insert the table:
     To adopt this function to suit other table; Change all occurencies for 
     1) selected_table.columns.[column_a]
@@ -30,7 +31,7 @@ def account_type_table(table_name):
         selected_table = s.Table(f'{table_name}', metadata, autoload=True, autoload_with=engine)
     
         # select entries in the database
-        query = s.select([selected_table.columns.account_type_id, selected_table.columns.account_type_description])
+        query = s.select([selected_table.columns.account_currency_id, selected_table.columns.account_currency_type])
         result_proxy = connection.execute(query)
 
         # STORING RESULTS PROXY IN A DICT
@@ -96,7 +97,7 @@ def account_type_table(table_name):
                     print("_____________________________")
                     print()
 
-                    update = s.update(selected_table).values(account_type_description=value_selection).where(selected_table.columns.account_type_id == id_selection)
+                    update = s.update(selected_table).values(account_currency_type=value_selection).where(selected_table.columns.account_currency_id == id_selection)
                     proxy = connection.execute(update)
                     try_again = True
 
@@ -113,7 +114,7 @@ def account_type_table(table_name):
                     print("_____________________________")
                     print()
                 
-                    delete = query = s.delete(selected_table).where(selected_table.columns.account_type_id == id_selection)
+                    delete = query = s.delete(selected_table).where(selected_table.columns.account_currency_id == id_selection)
                     proxy = connection.execute(delete)
                     try_again = True
                 
@@ -125,7 +126,7 @@ def account_type_table(table_name):
                     print("_____________________________")
                     value_selection = input("New result type: ")
                     print("_____________________________")
-                    insert = s.insert(selected_table).values(account_type_description =value_selection)
+                    insert = s.insert(selected_table).values(account_currency_type =value_selection)
                     proxy = connection.execute(insert)
                     try_again = True
 
@@ -136,72 +137,6 @@ def account_type_table(table_name):
     #_______________________________________________________________________________________   
     return user_selection 
 
-
-def show_account_type_table(table_name : str) -> int:
-    """show items in table, allow user to select one
-
-    Args:
-        table_name (str): name of the table 
-
-    Returns:
-        int: id of the table
-    """
-
-    try_again = True
-    while try_again:
-        # create a table object for result
-        selected_table = s.Table(f'{table_name}', metadata, autoload=True, autoload_with=engine)
-    
-        # select entries in the database
-        query = s.select([selected_table.columns.account_type_id, selected_table.columns.account_type_description])
-        result_proxy = connection.execute(query)
-
-        # STORING RESULTS PROXY IN A DICT
-        #_______________________________________________________________________________________
-       
-        # record the output in a dict ( key and value); id and the name
-        output_dict = {}
-        for result in result_proxy:
-            #convert tuple output to one item
-            column_a = result[0]
-            column_b= result[1]
-
-            # table_id (primary key) recorded as the key, followed by identifier name
-
-            output_dict[column_a]=str.upper(column_b)
-
-        # insert option to update if input is missing
-        changes = {"u":"update","d":"delete","i":"insert" }
-
-
-        # DISPLAY ENTRIES IN DATABASE
-        #_______________________________________________________________________________________
-        print()
-        print(F"{table_name}")
-        print("***************************************************")
-        for key, value in output_dict.items():
-            print(f"{key}:{value}")
-        print("___________________________________________________")
-
-        # SELECT ENTRY IN DATABASE LOGIC
-        #_______________________________________________________________________________________
-        user_selection = input("select: ")
-        if user_selection.isdigit():
-            user_selection = int(user_selection)
-            if user_selection in output_dict.keys():
-                try_again = False
-            else:
-                print("Integer selected out of range")
-                try_again = True
-        else:
-            print("Wrong input")
-    return user_selection
-
-
-
-
 if __name__ == "__main__":
-
-    selected_id = account_type_table("account_type")
-    print(selected_id)
-
+    account_currency_id = account_currency_table("account_currency")
+    print(account_currency_id)
