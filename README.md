@@ -109,6 +109,7 @@ To get this project up and running locally, you must already have the following 
 - Load live data into the database
 - Load database in a online server
 - add account_currency column to account table
+- set up a budget appropiation system that tracks monthly income in relation to consolidated fund.
 
 **complete**
 - Design database 
